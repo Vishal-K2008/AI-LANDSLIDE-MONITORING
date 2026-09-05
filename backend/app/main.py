@@ -1,3 +1,9 @@
+import sys
+import os
+
+# Ensure backend root directory is in PYTHONPATH for Vercel serverless imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database.database import engine, Base, SessionLocal
