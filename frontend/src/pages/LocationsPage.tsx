@@ -23,19 +23,19 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({
   });
 
   return (
-    <div className="p-4 lg:p-8 max-w-7xl mx-auto space-y-6">
+    <div className="p-3 sm:p-4 lg:p-8 max-w-7xl mx-auto space-y-4 sm:space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-5 rounded-3xl border border-slate-200 shadow-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 bg-white p-4 sm:p-5 rounded-3xl border border-slate-200 shadow-sm">
         <div>
-          <h2 className="text-xl font-bold font-display text-slate-900 flex items-center gap-2">
-            <Compass className="w-5 h-5 text-teal-600" />
+          <h2 className="text-lg sm:text-xl font-bold font-display text-slate-900 flex items-center gap-2">
+            <Compass className="w-5 h-5 text-teal-600 shrink-0" />
             Monitored Geotechnical Stations & Slope Locations
           </h2>
-          <p className="text-xs text-slate-500 font-medium">Tamil Nadu vulnerability zones (Ooty, Coonoor, Kodaikanal, Valparai...)</p>
+          <p className="text-xs text-slate-500 font-medium mt-0.5">Tamil Nadu vulnerability zones (Ooty, Coonoor, Kodaikanal, Valparai...)</p>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="relative w-60">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
+          <div className="relative w-full sm:w-60">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <input
               type="text"
@@ -46,12 +46,12 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({
             />
           </div>
 
-          <div className="flex bg-slate-100 p-1 rounded-xl text-xs font-semibold">
+          <div className="flex bg-slate-100 p-1 rounded-xl text-xs font-semibold overflow-x-auto no-scrollbar max-w-full">
             {['ALL', 'CRITICAL', 'HIGH', 'MODERATE', 'LOW'].map(lvl => (
               <button
                 key={lvl}
                 onClick={() => setFilterRisk(lvl)}
-                className={`px-2.5 py-1 rounded-lg transition-all ${
+                className={`px-2.5 py-1 rounded-lg transition-all shrink-0 ${
                   filterRisk === lvl ? 'bg-slate-900 text-white shadow-sm' : 'text-slate-500 hover:text-slate-900'
                 }`}
               >

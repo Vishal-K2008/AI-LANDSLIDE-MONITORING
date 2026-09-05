@@ -31,13 +31,13 @@ export const AlertBanner: React.FC<AlertBannerProps> = ({
   };
 
   return (
-    <div className={`p-4 rounded-2xl border ${getStyle(activeAlert.alert_level)} shadow-xl animate-fade-in flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6`}>
-      <div className="flex items-start gap-3.5">
-        <div className="p-2.5 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 text-white shrink-0 mt-0.5 md:mt-0">
-          <BellRing className="w-5 h-5 animate-bounce" />
+    <div className={`p-3.5 sm:p-4 rounded-2xl border ${getStyle(activeAlert.alert_level)} shadow-xl animate-fade-in flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-6`}>
+      <div className="flex items-start gap-3">
+        <div className="p-2 sm:p-2.5 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 text-white shrink-0 mt-0.5 md:mt-0">
+          <BellRing className="w-4 h-4 sm:w-5 sm:h-5 animate-bounce" />
         </div>
         <div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <span className="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 bg-white/20 rounded-md">
               {activeAlert.alert_level} EARLY WARNING
             </span>
@@ -45,17 +45,17 @@ export const AlertBanner: React.FC<AlertBannerProps> = ({
               {new Date(activeAlert.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
             </span>
           </div>
-          <h4 className="font-bold text-white text-base mt-1">{activeAlert.title}</h4>
-          <p className="text-xs text-white/90 font-medium mt-0.5 max-w-3xl">
+          <h4 className="font-bold text-white text-sm sm:text-base mt-1">{activeAlert.title}</h4>
+          <p className="text-xs text-white/90 font-medium mt-0.5 max-w-3xl leading-relaxed">
             {activeAlert.description}
           </p>
         </div>
       </div>
 
-      <div className="flex items-center gap-2 shrink-0 self-end md:self-center">
+      <div className="flex items-center gap-2 shrink-0 w-full md:w-auto justify-end pt-1 md:pt-0">
         <button
           onClick={() => onViewDetails(activeAlert.location_id)}
-          className="flex items-center gap-1 px-3.5 py-1.5 bg-white text-slate-900 text-xs font-bold rounded-xl shadow-md hover:bg-slate-100 transition-all active:scale-95"
+          className="flex items-center gap-1 px-3 py-1.5 bg-white text-slate-900 text-xs font-bold rounded-xl shadow-md hover:bg-slate-100 transition-all active:scale-95"
         >
           View Zone Details
           <ChevronRight className="w-3.5 h-3.5" />

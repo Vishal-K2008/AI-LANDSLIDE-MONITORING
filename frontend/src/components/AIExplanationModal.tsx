@@ -30,19 +30,19 @@ export const AIExplanationModal: React.FC<AIExplanationModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in">
       <div className="bg-white rounded-3xl max-w-2xl w-full border border-slate-200 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
         {/* Modal Header */}
-        <div className="bg-gradient-to-r from-slate-900 via-teal-950 to-slate-900 p-5 text-white flex items-center justify-between">
+        <div className="bg-gradient-to-r from-slate-900 via-teal-950 to-slate-900 p-4 sm:p-5 text-white flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="bg-teal-500/20 p-2.5 rounded-2xl border border-teal-400/30 text-teal-300">
-              <BrainCircuit className="w-6 h-6 animate-pulse" />
+            <div className="bg-teal-500/20 p-2 sm:p-2.5 rounded-2xl border border-teal-400/30 text-teal-300 shrink-0">
+              <BrainCircuit className="w-5 h-5 sm:w-6 sm:h-6 animate-pulse" />
             </div>
             <div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-teal-400">
+              <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-teal-400">
                 AI Diagnostic Engine
               </span>
-              <h3 className="text-lg font-bold font-display text-white">
+              <h3 className="text-base sm:text-lg font-bold font-display text-white">
                 "Why is this area risky?"
               </h3>
             </div>
@@ -56,20 +56,20 @@ export const AIExplanationModal: React.FC<AIExplanationModalProps> = ({
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 space-y-6 overflow-y-auto">
+        <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 overflow-y-auto">
           {/* Location Summary Header */}
-          <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-200">
             <div>
-              <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Analyzed Zone</p>
-              <h4 className="font-bold text-slate-900 text-base">{location.name}</h4>
-              <p className="text-xs text-slate-500">{location.district}, {location.state} • Elevation: {location.elevation_m}m</p>
+              <p className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Analyzed Zone</p>
+              <h4 className="font-bold text-slate-900 text-sm sm:text-base">{location.name}</h4>
+              <p className="text-xs text-slate-500">{location.district}, {location.state} • Elev: {location.elevation_m}m</p>
             </div>
 
-            <div className="text-right">
-              <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Risk Assessment</p>
-              <div className="flex items-center gap-2 justify-end mt-0.5">
-                <span className="text-2xl font-extrabold text-slate-900 font-display">{probPct}%</span>
-                <span className={`px-3 py-1 rounded-full text-xs font-extrabold tracking-wide ${getBadgeStyle(level)}`}>
+            <div className="text-left sm:text-right w-full sm:w-auto border-t sm:border-t-0 pt-2 sm:pt-0 border-slate-200">
+              <p className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Risk Assessment</p>
+              <div className="flex items-center gap-2 sm:justify-end mt-0.5">
+                <span className="text-xl sm:text-2xl font-extrabold text-slate-900 font-display">{probPct}%</span>
+                <span className={`px-2.5 py-0.5 rounded-full text-xs font-extrabold tracking-wide ${getBadgeStyle(level)}`}>
                   {level}
                 </span>
               </div>

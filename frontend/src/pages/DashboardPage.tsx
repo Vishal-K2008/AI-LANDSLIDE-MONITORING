@@ -43,7 +43,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
   ];
 
   return (
-    <div className="p-4 lg:p-8 space-y-6 max-w-7xl mx-auto">
+    <div className="p-3 sm:p-4 lg:p-8 space-y-4 sm:space-y-6 max-w-7xl mx-auto">
       {/* Top Early Warning Active Alert Banner */}
       {activeAlerts.length > 0 && (
         <AlertBanner
@@ -57,7 +57,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
       )}
 
       {/* Main KPI Summary Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <RiskCard
           title="Highest Landslide Risk"
           value={`${highestRiskLoc ? Math.round(highestRiskLoc.risk_probability * 100) : 87}%`}
@@ -99,27 +99,28 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
       </div>
 
       {/* Main Center Grid: Map & Quick Telemetry */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Large Leaflet Map View (2 Cols) */}
-        <div className="lg:col-span-2 bg-white rounded-3xl p-5 border border-slate-200 shadow-sm flex flex-col space-y-4">
+        <div className="lg:col-span-2 bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-sm flex flex-col space-y-3 sm:space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold font-display text-slate-900 flex items-center gap-2">
-                <Activity className="w-4 h-4 text-teal-600" />
+              <h3 className="text-sm sm:text-base font-bold font-display text-slate-900 flex items-center gap-2">
+                <Activity className="w-4 h-4 text-teal-600 shrink-0" />
                 Live Geospatial Risk Map
               </h3>
-              <p className="text-xs text-slate-500 font-medium">Real-time risk zones & citizen hazard reports overlay</p>
+              <p className="text-[11px] sm:text-xs text-slate-500 font-medium">Real-time risk zones & citizen hazard reports overlay</p>
             </div>
             <button
               onClick={() => onNavigateTab('map')}
-              className="flex items-center gap-1 text-xs font-bold text-teal-600 hover:text-teal-700"
+              className="flex items-center gap-1 text-xs font-bold text-teal-600 hover:text-teal-700 shrink-0"
             >
-              Fullscreen Map
+              <span className="hidden xs:inline">Fullscreen Map</span>
+              <span className="xs:hidden">Map</span>
               <ChevronRight className="w-3.5 h-3.5" />
             </button>
           </div>
 
-          <div className="h-[400px] w-full">
+          <div className="h-[320px] sm:h-[400px] w-full">
             <RiskMap
               locations={locations}
               onSelectLocation={onSelectLocation}
@@ -130,9 +131,9 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
         </div>
 
         {/* AI Quick Diagnosis & High Risk Table (1 Col) */}
-        <div className="space-y-6 flex flex-col justify-between">
+        <div className="space-y-4 sm:space-y-6 flex flex-col justify-between">
           {/* AI Explanation Callout Box */}
-          <div className="bg-gradient-to-br from-slate-900 to-teal-950 text-white rounded-3xl p-6 border border-slate-800 shadow-xl space-y-3">
+          <div className="bg-gradient-to-br from-slate-900 via-teal-950 to-slate-900 text-white rounded-3xl p-5 sm:p-6 border border-slate-800 shadow-xl space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-bold uppercase tracking-wider text-teal-400 bg-teal-500/20 px-2.5 py-1 rounded-full border border-teal-500/30">
                 AI Diagnostic Summary
@@ -140,11 +141,11 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
               <Sparkles className="w-4 h-4 text-teal-400" />
             </div>
 
-            <h4 className="font-bold font-display text-sm text-white">
+            <h4 className="font-bold font-display text-xs sm:text-sm text-white">
               Why is the Nilgiris Region currently at HIGH risk?
             </h4>
 
-            <p className="text-xs text-slate-300 leading-relaxed">
+            <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed">
               Heavy continuous monsoonal rainfall (88-115mm) has saturated the upper regolith layer to 91% capacity. Steep slopes (&gt;32°) in Doddabetta and Kodaikanal show extreme pore-water pressure, escalating predicted landslide risk to 87%.
             </p>
 
@@ -158,7 +159,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
           </div>
 
           {/* Quick Monitored Sites Overview */}
-          <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-3 flex-1">
+          <div className="bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-sm space-y-3 flex-1">
             <div className="flex items-center justify-between">
               <h4 className="font-bold text-sm text-slate-900">Vulnerable Locations</h4>
               <button onClick={() => onNavigateTab('locations')} className="text-xs font-semibold text-teal-600 hover:underline">
@@ -166,7 +167,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
               </button>
             </div>
 
-            <div className="space-y-2 max-h-[220px] overflow-y-auto">
+            <div className="space-y-2 max-h-[220px] overflow-y-auto pr-0.5">
               {locations.slice(0, 4).map((loc) => (
                 <div
                   key={loc.id}
@@ -192,27 +193,27 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
       </div>
 
       {/* Bottom Row: 24h Risk Trend Chart & Recent Citizen Reports */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* 24h Risk Trend Area Chart */}
-        <div className="lg:col-span-2 bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-3">
+        <div className="lg:col-span-2 bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-sm space-y-3">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="font-bold font-display text-slate-900 text-sm">24-Hour Landslide Risk & Rainfall Trend</h3>
-              <p className="text-xs text-slate-500">Progression from Low → Moderate → High risk during monsoon</p>
+              <h3 className="font-bold font-display text-slate-900 text-xs sm:text-sm">24-Hour Landslide Risk & Rainfall Trend</h3>
+              <p className="text-[11px] sm:text-xs text-slate-500">Progression from Low → Moderate → High risk during monsoon</p>
             </div>
-            <button onClick={() => onNavigateTab('trends')} className="text-xs font-semibold text-teal-600">
-              Detailed Trends
+            <button onClick={() => onNavigateTab('trends')} className="text-xs font-semibold text-teal-600 shrink-0">
+              Trends
             </button>
           </div>
 
-          <div className="h-56 w-full pt-2">
+          <div className="h-48 sm:h-56 w-full pt-2">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={trendChartData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
-                <XAxis dataKey="time" tick={{ fontSize: 11 }} />
-                <YAxis tick={{ fontSize: 11 }} />
+                <XAxis dataKey="time" tick={{ fontSize: 10 }} />
+                <YAxis tick={{ fontSize: 10 }} />
                 <Tooltip />
-                <Area type="monotone" dataKey="risk" name="Risk Probability (%)" stroke="#ef4444" fill="#f87171" fillOpacity={0.25} />
+                <Area type="monotone" dataKey="risk" name="Risk Prob (%)" stroke="#ef4444" fill="#f87171" fillOpacity={0.25} />
                 <Area type="monotone" dataKey="rain" name="Rainfall (mm)" stroke="#2563eb" fill="#60a5fa" fillOpacity={0.15} />
               </AreaChart>
             </ResponsiveContainer>
@@ -220,16 +221,16 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
         </div>
 
         {/* Recent Citizen Reports Box */}
-        <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-3 flex flex-col justify-between">
+        <div className="bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-sm space-y-3 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-3">
-              <h3 className="font-bold font-display text-slate-900 text-sm flex items-center gap-1.5">
-                <FileText className="w-4 h-4 text-purple-600" />
-                Recent Citizen Reports
+              <h3 className="font-bold font-display text-slate-900 text-xs sm:text-sm flex items-center gap-1.5">
+                <FileText className="w-4 h-4 text-purple-600 shrink-0" />
+                Citizen Reports
               </h3>
               <button
                 onClick={onOpenReportForm}
-                className="text-xs font-bold px-2.5 py-1 bg-purple-50 text-purple-700 rounded-lg border border-purple-200 hover:bg-purple-100"
+                className="text-[11px] font-bold px-2.5 py-1 bg-purple-50 text-purple-700 rounded-lg border border-purple-200 hover:bg-purple-100"
               >
                 + Submit Report
               </button>
@@ -254,7 +255,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
 
           <button
             onClick={() => onNavigateTab('reports')}
-            className="w-full py-2 bg-slate-100 text-slate-700 rounded-xl text-xs font-bold hover:bg-slate-200"
+            className="w-full mt-3 py-2 bg-slate-100 text-slate-700 rounded-xl text-xs font-bold hover:bg-slate-200"
           >
             View All Reports ({reports.length})
           </button>

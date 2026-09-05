@@ -70,30 +70,32 @@ export const RiskMap: React.FC<RiskMapProps> = ({
   });
 
   return (
-    <div className="relative w-full h-full min-h-[480px] rounded-2xl overflow-hidden border border-slate-200 shadow-md flex flex-col bg-slate-100">
+    <div className="relative w-full h-full min-h-[350px] sm:min-h-[440px] rounded-2xl overflow-hidden border border-slate-200 shadow-md flex flex-col bg-slate-100">
       {/* Top Map Filter Bar */}
-      <div className="absolute top-4 left-4 z-[1000] bg-white/90 backdrop-blur-md p-2 rounded-xl border border-slate-200 shadow-lg flex items-center gap-2 flex-wrap text-xs">
-        <span className="font-bold text-slate-700 px-2 flex items-center gap-1">
-          <Layers className="w-3.5 h-3.5 text-teal-600" />
+      <div className="absolute top-2 left-2 sm:top-4 sm:left-4 z-[1000] bg-white/95 backdrop-blur-md p-1.5 sm:p-2 rounded-xl border border-slate-200 shadow-lg flex items-center gap-1.5 flex-wrap text-[11px] sm:text-xs max-w-[calc(100%-16px)] sm:max-w-none">
+        <span className="font-bold text-slate-700 px-1 sm:px-2 flex items-center gap-1">
+          <Layers className="w-3.5 h-3.5 text-teal-600 hidden xs:inline" />
           Filter:
         </span>
-        {['ALL', 'CRITICAL', 'HIGH', 'MODERATE', 'LOW'].map((lvl) => (
-          <button
-            key={lvl}
-            onClick={() => setFilterLevel(lvl)}
-            className={`px-2.5 py-1 rounded-lg font-semibold transition-all ${
-              filterLevel === lvl
-                ? 'bg-slate-900 text-white shadow-sm'
-                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-            }`}
-          >
-            {lvl}
-          </button>
-        ))}
+        <div className="flex items-center gap-1 overflow-x-auto no-scrollbar max-w-full">
+          {['ALL', 'CRITICAL', 'HIGH', 'MODERATE', 'LOW'].map((lvl) => (
+            <button
+              key={lvl}
+              onClick={() => setFilterLevel(lvl)}
+              className={`px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg font-semibold transition-all shrink-0 ${
+                filterLevel === lvl
+                  ? 'bg-slate-900 text-white shadow-sm'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              }`}
+            >
+              {lvl}
+            </button>
+          ))}
+        </div>
 
-        <div className="h-4 w-px bg-slate-200 my-auto mx-1" />
+        <div className="hidden sm:block h-4 w-px bg-slate-200 my-auto mx-1" />
 
-        <label className="flex items-center gap-1.5 font-medium text-slate-700 cursor-pointer select-none px-1">
+        <label className="flex items-center gap-1 font-medium text-slate-700 cursor-pointer select-none px-1 text-[10px] sm:text-xs">
           <input
             type="checkbox"
             checked={showZones}

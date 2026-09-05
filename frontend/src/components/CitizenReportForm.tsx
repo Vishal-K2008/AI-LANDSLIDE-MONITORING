@@ -54,35 +54,35 @@ export const CitizenReportForm: React.FC<CitizenReportFormProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in">
-      <div className="bg-white rounded-3xl max-w-lg w-full border border-slate-200 shadow-2xl overflow-hidden flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in">
+      <div className="bg-white rounded-3xl max-w-lg w-full border border-slate-200 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
         {/* Modal Header */}
-        <div className="bg-slate-900 p-5 text-white flex items-center justify-between">
+        <div className="bg-slate-900 p-4 sm:p-5 text-white flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 bg-purple-500/20 text-purple-400 rounded-xl border border-purple-400/30">
+            <div className="p-2 bg-purple-500/20 text-purple-400 rounded-xl border border-purple-400/30 shrink-0">
               <Camera className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-bold font-display text-base">Submit Citizen Hazard Report</h3>
-              <p className="text-xs text-slate-400">Report ground cracks, rockfalls, or water accumulation</p>
+              <h3 className="font-bold font-display text-sm sm:text-base">Submit Citizen Hazard Report</h3>
+              <p className="text-[11px] sm:text-xs text-slate-400">Report ground cracks, rockfalls, or water accumulation</p>
             </div>
           </div>
-          <button onClick={onClose} className="text-slate-400 hover:text-white">
+          <button onClick={onClose} className="text-slate-400 hover:text-white p-1">
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Modal Form */}
         {isSubmitted ? (
-          <div className="p-8 text-center space-y-3">
+          <div className="p-6 sm:p-8 text-center space-y-3">
             <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-7 h-7" />
             </div>
-            <h4 className="font-bold text-slate-900 text-lg">Report Submitted Successfully!</h4>
+            <h4 className="font-bold text-slate-900 text-base sm:text-lg">Report Submitted Successfully!</h4>
             <p className="text-xs text-slate-500">Your hazard report has been recorded and routed to the admin monitoring dashboard for verification.</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="p-6 space-y-4 text-xs">
+          <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-3 sm:space-y-4 text-xs overflow-y-auto">
             <div>
               <label className="block font-semibold text-slate-700 mb-1">Your Name (Optional)</label>
               <input
@@ -106,7 +106,7 @@ export const CitizenReportForm: React.FC<CitizenReportFormProps> = ({
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block font-semibold text-slate-700 mb-1">Hazard Category *</label>
                 <select

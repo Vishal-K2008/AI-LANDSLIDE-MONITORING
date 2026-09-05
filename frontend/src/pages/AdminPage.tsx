@@ -31,34 +31,34 @@ export const AdminPage: React.FC<AdminPageProps> = ({
   };
 
   return (
-    <div className="p-4 lg:p-8 max-w-7xl mx-auto space-y-6">
+    <div className="p-3 sm:p-4 lg:p-8 max-w-7xl mx-auto space-y-4 sm:space-y-6">
       {/* Top Banner */}
-      <div className="bg-gradient-to-r from-rose-950 via-slate-900 to-rose-950 text-white p-6 rounded-3xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-gradient-to-r from-rose-950 via-slate-900 to-rose-950 text-white p-5 sm:p-6 rounded-3xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <span className="text-[10px] font-extrabold uppercase tracking-wider text-rose-400 bg-rose-500/20 px-2.5 py-0.5 rounded-full border border-rose-500/30">
             Admin Command Center
           </span>
-          <h2 className="text-xl font-bold font-display text-white flex items-center gap-2 mt-1">
-            <ShieldCheck className="w-6 h-6 text-rose-400" />
+          <h2 className="text-lg sm:text-xl font-bold font-display text-white flex items-center gap-2 mt-1">
+            <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6 text-rose-400 shrink-0" />
             System Administration & Emergency Operations
           </h2>
-          <p className="text-xs text-slate-300 font-medium mt-0.5">
+          <p className="text-xs text-slate-300 font-medium mt-0.5 leading-relaxed">
             Real-time control over sensor simulation triggers, citizen report approvals, and early warning broadcasts
           </p>
         </div>
 
         {/* Simulation Triggers */}
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto shrink-0">
           <button
             onClick={onTriggerSimulation}
-            className="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-extrabold rounded-xl shadow-lg transition-all"
+            className="flex items-center justify-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-extrabold rounded-xl shadow-lg transition-all"
           >
             <CloudRain className="w-4 h-4" />
             Trigger Monsoon Downpour
           </button>
           <button
             onClick={handleResetSimulation}
-            className="flex items-center gap-2 px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-xl border border-slate-700 transition-all"
+            className="flex items-center justify-center gap-2 px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-xl border border-slate-700 transition-all"
           >
             <RefreshCw className="w-4 h-4" />
             Reset Baseline
@@ -67,33 +67,33 @@ export const AdminPage: React.FC<AdminPageProps> = ({
       </div>
 
       {/* Admin Statistics Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
-          <p className="text-xs font-semibold text-slate-400 uppercase">Monitored Locations</p>
-          <p className="text-2xl font-bold font-display text-slate-900">{stats?.total_locations || locations.length}</p>
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+        <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-sm">
+          <p className="text-[10px] sm:text-xs font-semibold text-slate-400 uppercase">Monitored Locations</p>
+          <p className="text-xl sm:text-2xl font-bold font-display text-slate-900">{stats?.total_locations || locations.length}</p>
         </div>
-        <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
-          <p className="text-xs font-semibold text-slate-400 uppercase">High Risk Sites</p>
-          <p className="text-2xl font-bold font-display text-rose-600">{stats?.high_risk_locations || 3}</p>
+        <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-sm">
+          <p className="text-[10px] sm:text-xs font-semibold text-slate-400 uppercase">High Risk Sites</p>
+          <p className="text-xl sm:text-2xl font-bold font-display text-rose-600">{stats?.high_risk_locations || 3}</p>
         </div>
-        <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
-          <p className="text-xs font-semibold text-slate-400 uppercase">Active Alerts</p>
-          <p className="text-2xl font-bold font-display text-amber-600">{stats?.active_alerts || alerts.length}</p>
+        <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-sm">
+          <p className="text-[10px] sm:text-xs font-semibold text-slate-400 uppercase">Active Alerts</p>
+          <p className="text-xl sm:text-2xl font-bold font-display text-amber-600">{stats?.active_alerts || alerts.length}</p>
         </div>
-        <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
-          <p className="text-xs font-semibold text-slate-400 uppercase">Pending Citizen Reports</p>
-          <p className="text-2xl font-bold font-display text-purple-600">{stats?.pending_citizen_reports || 1}</p>
+        <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-sm">
+          <p className="text-[10px] sm:text-xs font-semibold text-slate-400 uppercase">Pending Reports</p>
+          <p className="text-xl sm:text-2xl font-bold font-display text-purple-600">{stats?.pending_citizen_reports || 1}</p>
         </div>
       </div>
 
       {/* Citizen Reports Management Table */}
-      <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
-        <h3 className="font-bold font-display text-slate-900 text-base flex items-center gap-2">
-          <FileText className="w-5 h-5 text-purple-600" />
+      <div className="bg-white rounded-3xl p-4 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+        <h3 className="font-bold font-display text-slate-900 text-sm sm:text-base flex items-center gap-2">
+          <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 shrink-0" />
           Pending Citizen Hazard Verification Workflow
         </h3>
 
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
           <table className="w-full text-left text-xs">
             <thead>
               <tr className="border-b border-slate-200 text-slate-400 font-semibold uppercase tracking-wider">

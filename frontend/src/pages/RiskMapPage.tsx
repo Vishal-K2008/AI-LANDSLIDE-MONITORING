@@ -26,21 +26,22 @@ export const RiskMapPage: React.FC<RiskMapPageProps> = ({
   );
 
   return (
-    <div className="p-4 lg:p-8 max-w-7xl mx-auto space-y-4">
+  return (
+    <div className="p-3 sm:p-4 lg:p-8 max-w-7xl mx-auto space-y-4">
       {/* Header Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-5 rounded-3xl border border-slate-200 shadow-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 bg-white p-4 sm:p-5 rounded-3xl border border-slate-200 shadow-sm">
         <div>
-          <h2 className="text-xl font-bold font-display text-slate-900 flex items-center gap-2">
-            <MapPin className="w-5 h-5 text-teal-600" />
+          <h2 className="text-lg sm:text-xl font-bold font-display text-slate-900 flex items-center gap-2">
+            <MapPin className="w-5 h-5 text-teal-600 shrink-0" />
             Interactive Geospatial Landslide Risk Map
           </h2>
-          <p className="text-xs text-slate-500 font-medium">
+          <p className="text-xs text-slate-500 font-medium mt-0.5">
             Monitor Tamil Nadu & Western Ghats risk zones (Green = Low, Yellow = Moderate, Red = High, Maroon = Critical)
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="relative w-64">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
+          <div className="relative w-full sm:w-64">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <input
               type="text"
@@ -51,7 +52,7 @@ export const RiskMapPage: React.FC<RiskMapPageProps> = ({
             />
           </div>
 
-          <label className="flex items-center gap-1.5 text-xs font-semibold text-slate-700 cursor-pointer bg-slate-50 px-3 py-2 rounded-xl border border-slate-200">
+          <label className="flex items-center justify-center sm:justify-start gap-1.5 text-xs font-semibold text-slate-700 cursor-pointer bg-slate-50 px-3 py-2 rounded-xl border border-slate-200 shrink-0">
             <input
               type="checkbox"
               checked={showCitizenReports}
@@ -64,9 +65,9 @@ export const RiskMapPage: React.FC<RiskMapPageProps> = ({
       </div>
 
       {/* Main Map View */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6">
         {/* Map Container (3 Cols) */}
-        <div className="lg:col-span-3 h-[600px] w-full">
+        <div className="lg:col-span-3 h-[380px] sm:h-[500px] lg:h-[600px] w-full">
           <RiskMap
             locations={filteredLocs}
             selectedLocationId={selectedLocId}
@@ -81,7 +82,7 @@ export const RiskMapPage: React.FC<RiskMapPageProps> = ({
         </div>
 
         {/* Location Selector Sidebar (1 Col) */}
-        <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-4 flex flex-col h-[600px]">
+        <div className="bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-sm space-y-3 sm:space-y-4 flex flex-col max-h-[300px] lg:max-h-none lg:h-[600px]">
           <h3 className="font-bold text-sm text-slate-900 border-b border-slate-100 pb-2">
             Monitored Locations ({filteredLocs.length})
           </h3>

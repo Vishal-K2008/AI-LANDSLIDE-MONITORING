@@ -9,9 +9,8 @@ import {
   FileText, 
   ShieldCheck,
   Compass,
-  CheckCircle2,
-  AlertOctagon,
-  Radio
+  Radio,
+  X
 } from 'lucide-react';
 import { UserRole } from '../types';
 
@@ -32,6 +31,8 @@ interface SidebarProps {
   currentRole: UserRole;
   activeAlertsCount: number;
   pendingReportsCount: number;
+  isMobileOpen?: boolean;
+  onCloseMobile?: () => void;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -39,18 +40,21 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onTabChange,
   currentRole,
   activeAlertsCount,
-  pendingReportsCount
+  pendingReportsCount,
+  isMobileOpen = false,
+  onCloseMobile
 }) => {
   const navItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-    { id: 'map', label: 'Interactive Risk Map', icon: MapPin },
-    { id: 'locations', label: 'Monitored Locations', icon: Compass },
-    { id: 'environmental', label: 'Environmental Telemetry', icon: CloudRain },
-    { id: 'ai-analysis', label: 'AI Risk Analysis', icon: BrainCircuit },
-    { id: 'trends', label: 'Risk Trends', icon: TrendingUp },
+    { id: 'dashboard', label: 'Dashboard', shortLabel: 'Dashboard', icon: LayoutDashboard },
+    { id: 'map', label: 'Interactive Risk Map', shortLabel: 'Risk Map', icon: MapPin },
+    { id: 'locations', label: 'Monitored Locations', shortLabel: 'Locations', icon: Compass },
+    { id: 'environmental', label: 'Environmental Telemetry', shortLabel: 'Telemetry', icon: CloudRain },
+    { id: 'ai-analysis', label: 'AI Risk Analysis', shortLabel: 'AI Analysis', icon: BrainCircuit },
+    { id: 'trends', label: 'Risk Trends', shortLabel: 'Trends', icon: TrendingUp },
     { 
       id: 'alerts', 
-      label: 'Early Warnings & Alerts', 
+      label: 'Early Warnings & Alerts',
+      shortLabel: 'Alerts',
       icon: AlertTriangle,
       badge: activeAlertsCount > 0 ? activeAlertsCount : undefined,
       badgeColor: 'bg-rose-500 text-white'
@@ -58,19 +62,36 @@ export const Sidebar: React.FC<SidebarProps> = ({
     { 
       id: 'reports', 
       label: 'Citizen Hazard Reports', 
+      shortLabel: 'Reports',
       icon: FileText,
       badge: pendingReportsCount > 0 ? pendingReportsCount : undefined,
       badgeColor: 'bg-amber-500 text-white'
     },
     ...(currentRole === 'admin' ? [
-      { id: 'admin', label: 'Admin Command Center', icon: ShieldCheck }
+      { id: 'admin', label: 'Admin Command Center', shortLabel: 'Admin', icon: ShieldCheck }
     ] : [])
   ];
 
-  return (
-    <aside className="w-64 bg-white border-r border-slate-200 flex flex-col shrink-0 min-h-[calc(100vh-61px)]">
+  const handleTabClick = (tabId: NavTab) => {
+    onTabChange(tabId);
+    if (onCloseMobile) onCloseMobile();
+  };
+
+  const navContent = (
+    <div className="flex flex-col h-full">
+      {/* Mobile Drawer Header */}
+      <div className="md:hidden flex items-center justify-between p-4 border-b border-slate-200">
+        <span className="font-display font-bold text-slate-900 text-base">Navigation</span>
+        <button
+          onClick={onCloseMobile}
+          className="p-1.5 rounded-xl text-slate-500 hover:bg-slate-100"
+        >
+          <X className="w-5 h-5" />
+        </button>
+      </div>
+
       {/* Navigation List */}
-      <div className="p-3 space-y-1 flex-1">
+      <div className="p-3 space-y-1 flex-1 overflow-y-auto">
         <div className="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-slate-400">
           Navigation Menu
         </div>
@@ -80,7 +101,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           return (
             <button
               key={item.id}
-              onClick={() => onTabChange(item.id as NavTab)}
+              onClick={() => handleTabClick(item.id as NavTab)}
               className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all ${
                 isActive
                   ? 'bg-teal-600 text-white shadow-md shadow-teal-600/20 font-semibold'
@@ -102,7 +123,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       {/* Risk Legend Summary Box */}
-      <div className="p-4 m-3 bg-slate-50 rounded-2xl border border-slate-200 text-xs">
+      <div className="p-4 m-3 bg-slate-50 rounded-2xl border border-slate-200 text-xs shrink-0">
         <div className="flex items-center gap-2 font-bold text-slate-800 mb-2">
           <Radio className="w-3.5 h-3.5 text-teal-600 animate-pulse" />
           Risk Threshold Index
@@ -138,6 +159,59 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </div>
         </div>
       </div>
-    </aside>
+    </div>
+  );
+
+  return (
+    <>
+      {/* Desktop Persistent Sidebar */}
+      <aside className="hidden md:flex w-64 bg-white border-r border-slate-200 flex-col shrink-0 min-h-[calc(100vh-61px)]">
+        {navContent}
+      </aside>
+
+      {/* Mobile Off-Canvas Drawer Overlay */}
+      {isMobileOpen && (
+        <div className="md:hidden fixed inset-0 z-50 flex">
+          {/* Backdrop Blur Overlay */}
+          <div
+            className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity"
+            onClick={onCloseMobile}
+          />
+
+          {/* Slide-over Drawer Panel */}
+          <div className="relative w-4/5 max-w-xs bg-white h-full shadow-2xl z-10 flex flex-col animate-fade-in">
+            {navContent}
+          </div>
+        </div>
+      )}
+
+      {/* Quick Mobile Horizontal Pill Navigation Bar */}
+      <div className="md:hidden bg-white border-b border-slate-200 px-3 py-2 overflow-x-auto no-scrollbar flex items-center gap-1.5 shrink-0">
+        {navItems.map((item) => {
+          const Icon = item.icon;
+          const isActive = activeTab === item.id;
+          return (
+            <button
+              key={item.id}
+              onClick={() => handleTabClick(item.id as NavTab)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap shrink-0 transition-all ${
+                isActive
+                  ? 'bg-teal-600 text-white shadow-sm'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              }`}
+            >
+              <Icon className="w-3.5 h-3.5" />
+              <span>{item.shortLabel}</span>
+              {item.badge !== undefined && (
+                <span className="text-[10px] bg-rose-500 text-white font-bold px-1.5 py-0.2 rounded-full">
+                  {item.badge}
+                </span>
+              )}
+            </button>
+          );
+        })}
+      </div>
+    </>
   );
 };
+

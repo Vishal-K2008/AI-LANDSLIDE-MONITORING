@@ -28,6 +28,7 @@ import { LocationsPage } from './pages/LocationsPage';
 export function App() {
   const [activeTab, setActiveTab] = useState<NavTab>('dashboard');
   const [currentRole, setCurrentRole] = useState<UserRole>('citizen');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Application Data States
   const [locations, setLocations] = useState<Location[]>([]);
@@ -111,10 +112,12 @@ export function App() {
         onSearch={handleSearch}
         onTriggerSimulation={handleTriggerSimulation}
         activeAlertCount={alerts.filter(a => a.is_active).length}
+        isMobileMenuOpen={isMobileMenuOpen}
+        onToggleMobileMenu={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
       />
 
       {/* Main Workspace Layout (Sidebar + Page Content) */}
-      <div className="flex-1 flex overflow-hidden">
+      <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
         {/* Sidebar Navigation */}
         <Sidebar
           activeTab={activeTab}
@@ -122,6 +125,8 @@ export function App() {
           currentRole={currentRole}
           activeAlertsCount={alerts.filter(a => a.is_active).length}
           pendingReportsCount={reports.filter(r => r.status === 'Pending').length}
+          isMobileOpen={isMobileMenuOpen}
+          onCloseMobile={() => setIsMobileMenuOpen(false)}
         />
 
         {/* Dynamic Main Viewport */}
