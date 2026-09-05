@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, CircleMarker, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { Location, CitizenReport, RiskLevel } from '../types';
-import { ShieldAlert, CloudRain, Droplets, Mountain, Eye, Sparkles, Navigation, Layers } from 'lucide-react';
+import { Eye, Sparkles, Layers } from 'lucide-react';
 
 interface RiskMapProps {
   locations: Location[];

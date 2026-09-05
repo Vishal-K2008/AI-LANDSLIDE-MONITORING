@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Location, CitizenReport } from '../types';
 import { RiskMap } from '../components/RiskMap';
-import { MapPin, Search, Filter, ShieldAlert, Layers } from 'lucide-react';
+import { MapPin, Search } from 'lucide-react';
 
 interface RiskMapPageProps {
   locations: Location[];

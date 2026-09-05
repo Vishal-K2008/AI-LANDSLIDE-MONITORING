@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Location, EnvironmentalData } from '../types';
 import { api } from '../services/api';
-import { CloudRain, Droplets, Mountain, Thermometer, Wind, Satellite, Activity, RefreshCw } from 'lucide-react';
+import { CloudRain, Droplets, Mountain, Wind, Satellite, Activity, RefreshCw } from 'lucide-react';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, Legend } from 'recharts';
 
 interface EnvironmentalPageProps {

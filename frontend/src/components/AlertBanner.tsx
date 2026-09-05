@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldAlert, AlertTriangle, X, ChevronRight, BellRing } from 'lucide-react';
+import { X, ChevronRight, BellRing } from 'lucide-react';
 import { EarlyWarningAlert } from '../types';
 
 interface AlertBannerProps {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Location, DashboardStats, CitizenReport, EarlyWarningAlert } from '../types';
-import { ShieldCheck, CloudRain, RefreshCw, AlertTriangle, FileText, CheckCircle2, XCircle } from 'lucide-react';
+import { ShieldCheck, CloudRain, RefreshCw, FileText } from 'lucide-react';
 import { api } from '../services/api';
 
 interface AdminPageProps {

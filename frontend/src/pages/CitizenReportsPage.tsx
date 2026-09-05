@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CitizenReport, UserRole } from '../types';
-import { FileText, Plus, CheckCircle2, Clock, XCircle, MapPin, Eye } from 'lucide-react';
+import { FileText, Plus, MapPin } from 'lucide-react';
 import { api } from '../services/api';
 
 interface CitizenReportsPageProps {

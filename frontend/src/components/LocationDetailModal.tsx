@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Location, EnvironmentalData, RiskPrediction, RiskHistoryPoint } from '../types';
+import { Location, EnvironmentalData, RiskPrediction } from '../types';
 import { api } from '../services/api';
 import { X, Sparkles, CloudRain, Droplets, Mountain, ShieldAlert, Thermometer, Compass, LineChart as ChartIcon } from 'lucide-react';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';

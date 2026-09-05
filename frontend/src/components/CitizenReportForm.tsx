@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Camera, MapPin, Send, CheckCircle2, AlertTriangle, X } from 'lucide-react';
+import { Camera, Send, CheckCircle2, X } from 'lucide-react';
 import { CitizenReportType } from '../types';
 import { api } from '../services/api';
 

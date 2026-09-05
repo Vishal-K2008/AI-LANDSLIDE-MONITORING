@@ -3,7 +3,7 @@ import { Location, DashboardStats, EarlyWarningAlert, CitizenReport } from '../t
 import { RiskCard } from '../components/RiskCard';
 import { AlertBanner } from '../components/AlertBanner';
 import { RiskMap } from '../components/RiskMap';
-import { ShieldAlert, CloudRain, Droplets, Mountain, AlertTriangle, FileText, Activity, Sparkles, ChevronRight } from 'lucide-react';
+import { ShieldAlert, CloudRain, Droplets, AlertTriangle, FileText, Activity, Sparkles, ChevronRight } from 'lucide-react';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 
 interface DashboardPageProps {

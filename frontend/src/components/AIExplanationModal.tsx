@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, X, AlertTriangle, CheckCircle, BrainCircuit, BarChart3, ShieldAlert } from 'lucide-react';
+import { Sparkles, X, BrainCircuit, BarChart3, ShieldAlert } from 'lucide-react';
 import { Location, RiskPrediction } from '../types';
 
 interface AIExplanationModalProps {

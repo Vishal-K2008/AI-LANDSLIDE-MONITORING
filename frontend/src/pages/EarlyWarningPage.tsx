@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { EarlyWarningAlert, Location, UserRole } from '../types';
-import { AlertTriangle, Bell, ShieldAlert, CheckCircle2, Plus, X } from 'lucide-react';
+import { AlertTriangle, Bell, CheckCircle2, Plus, X } from 'lucide-react';
 import { api } from '../services/api';
 
 interface EarlyWarningPageProps {

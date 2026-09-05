@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Location } from '../types';
-import { TrendingUp, Clock, Calendar, ArrowRight, Activity } from 'lucide-react';
+import { TrendingUp, Clock, Calendar, ArrowRight } from 'lucide-react';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, Legend } from 'recharts';
 
 interface RiskTrendPageProps {

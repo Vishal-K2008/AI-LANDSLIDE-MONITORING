@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Location } from '../types';
 import { AIPredictorTool } from '../components/AIPredictorTool';
 import { AIExplanationModal } from '../components/AIExplanationModal';
-import { BrainCircuit, Sparkles, Sliders, ShieldAlert, Cpu } from 'lucide-react';
+import { BrainCircuit, Sparkles } from 'lucide-react';
 
 interface AIAnalysisPageProps {
   locations: Location[];

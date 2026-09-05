@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrainCircuit, Sliders, Play, RefreshCw, Sparkles, ShieldCheck, AlertTriangle } from 'lucide-react';
+import { BrainCircuit, Sliders, Play, RefreshCw, Sparkles } from 'lucide-react';
 import { api } from '../services/api';
 import { RiskPrediction, RiskLevel } from '../types';
 

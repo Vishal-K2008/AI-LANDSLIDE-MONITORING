@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Location } from '../types';
-import { Compass, Search, Filter, Mountain, Eye, Sparkles } from 'lucide-react';
+import { Compass, Search, Eye, Sparkles } from 'lucide-react';
 
 interface LocationsPageProps {
   locations: Location[];
