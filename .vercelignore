@@ -1,0 +1,2 @@
+# Tell Vercel to ignore the Python backend directory during deployment
+backend/
