@@ -22,7 +22,7 @@ class Location(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, index=True, nullable=False)
     district = Column(String, index=True, nullable=False)
-    state = Column(String, default="Tamil Nadu")
+    state = Column(String, default="Meghalaya")
     latitude = Column(Float, nullable=False)
     longitude = Column(Float, nullable=False)
     elevation_m = Column(Float, nullable=False)

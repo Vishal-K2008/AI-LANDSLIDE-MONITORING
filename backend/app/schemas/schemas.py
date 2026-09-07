@@ -27,7 +27,7 @@ class Token(BaseModel):
 class LocationBase(BaseModel):
     name: str
     district: str
-    state: str = "Tamil Nadu"
+    state: str = "Meghalaya"
     latitude: float
     longitude: float
     elevation_m: float

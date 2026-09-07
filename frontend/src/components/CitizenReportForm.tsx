@@ -15,11 +15,11 @@ export const CitizenReportForm: React.FC<CitizenReportFormProps> = ({
   onSuccess
 }) => {
   const [reporterName, setReporterName] = useState('');
-  const [locationName, setLocationName] = useState('Ooty - Coonoor Pass Road');
+  const [locationName, setLocationName] = useState('Shillong - Sohra Highway KM 22');
   const [reportType, setReportType] = useState<CitizenReportType>('ground_cracks');
   const [description, setDescription] = useState('');
-  const [latitude, setLatitude] = useState<number>(11.39);
-  const [longitude, setLongitude] = useState<number>(76.76);
+  const [latitude, setLatitude] = useState<number>(25.285);
+  const [longitude, setLongitude] = useState<number>(91.738);
   const [photoUrl, setPhotoUrl] = useState('');
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -87,7 +87,7 @@ export const CitizenReportForm: React.FC<CitizenReportFormProps> = ({
               <label className="block font-semibold text-slate-700 mb-1">Your Name (Optional)</label>
               <input
                 type="text"
-                placeholder="e.g. Karthik Subbaraj"
+                placeholder="e.g. Tenzing Sangma"
                 value={reporterName}
                 onChange={(e) => setReporterName(e.target.value)}
                 className="w-full p-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-teal-500 focus:outline-none"
@@ -99,7 +99,7 @@ export const CitizenReportForm: React.FC<CitizenReportFormProps> = ({
               <input
                 type="text"
                 required
-                placeholder="e.g. Ooty - Coonoor Road KM 14"
+                placeholder="e.g. Shillong - Sohra Highway KM 22"
                 value={locationName}
                 onChange={(e) => setLocationName(e.target.value)}
                 className="w-full p-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-teal-500 focus:outline-none"

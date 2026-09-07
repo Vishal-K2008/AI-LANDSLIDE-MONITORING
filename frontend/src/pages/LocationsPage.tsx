@@ -31,7 +31,7 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({
             <Compass className="w-5 h-5 text-teal-600 shrink-0" />
             Monitored Geotechnical Stations & Slope Locations
           </h2>
-          <p className="text-xs text-slate-500 font-medium mt-0.5">Tamil Nadu vulnerability zones (Ooty, Coonoor, Kodaikanal, Valparai...)</p>
+          <p className="text-xs text-slate-500 font-medium mt-0.5">Northeast India vulnerability zones (Shillong, Gangtok, Haflong, Kohima, Aizawl...)</p>
         </div>
 
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">

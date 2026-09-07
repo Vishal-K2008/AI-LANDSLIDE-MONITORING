@@ -61,7 +61,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
         <RiskCard
           title="Highest Landslide Risk"
           value={`${highestRiskLoc ? Math.round(highestRiskLoc.risk_probability * 100) : 87}%`}
-          subtitle={highestRiskLoc?.name || 'Ooty Doddabetta'}
+          subtitle={highestRiskLoc?.name || 'Shillong - Sohra Highway'}
           icon={ShieldAlert}
           riskLevel={highestRiskLoc?.risk_level || 'HIGH'}
           trend="up"
@@ -142,11 +142,11 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
             </div>
 
             <h4 className="font-bold font-display text-xs sm:text-sm text-white">
-              Why is the Nilgiris Region currently at HIGH risk?
+              Why is the Northeast Region currently at HIGH risk?
             </h4>
 
             <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed">
-              Heavy continuous monsoonal rainfall (88-115mm) has saturated the upper regolith layer to 91% capacity. Steep slopes (&gt;32°) in Doddabetta and Kodaikanal show extreme pore-water pressure, escalating predicted landslide risk to 87%.
+              Heavy continuous monsoonal rainfall (110-125mm) has saturated the upper regolith layer to 88% capacity. Steep hill slopes (&gt;35°) in Sohra and Gangtok show extreme pore-water pressure, escalating predicted landslide risk to 93%.
             </p>
 
             <button

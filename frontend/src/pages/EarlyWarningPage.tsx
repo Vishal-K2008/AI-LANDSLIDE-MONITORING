@@ -171,7 +171,7 @@ export const EarlyWarningPage: React.FC<EarlyWarningPageProps> = ({
                 <label className="font-semibold block mb-1">Alert Title</label>
                 <input
                   type="text"
-                  placeholder="e.g. ⚠️ CRITICAL LANDSLIDE WARNING - OOTY"
+                  placeholder="e.g. ⚠️ CRITICAL LANDSLIDE WARNING - SHILLONG"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   className="w-full p-2 bg-slate-50 border rounded-xl"

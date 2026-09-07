@@ -1,6 +1,6 @@
 # AI-Based Early Warning & Landslide Risk Monitoring System
 
-TerraGuard AI is a full-stack, enterprise-grade disaster management and geospatial landslide risk prediction platform. Designed for vulnerable hill regions (focusing on Tamil Nadu / Western Ghats / Nilgiris sample data), it combines real-time hydro-meteorological sensor telemetry, geospatial mapping, Scikit-Learn Machine Learning risk inference, natural language AI explainability, citizen hazard reporting, and early warning emergency alerts.
+TerraGuard AI is a full-stack, enterprise-grade disaster management and geospatial landslide risk prediction platform. Designed for vulnerable hill regions (focusing on Northeast India sample data), it combines real-time hydro-meteorological sensor telemetry, geospatial mapping, Scikit-Learn Machine Learning risk inference, natural language AI explainability, citizen hazard reporting, and early warning emergency alerts.
 
 ---
 
@@ -12,7 +12,7 @@ TerraGuard AI is a full-stack, enterprise-grade disaster management and geospati
    - Animated glassmorphism cards and real-time alert banners.
 
 2. **Interactive Geospatial Risk Map (Leaflet)**:
-   - Fullscreen Leaflet map displaying Tamil Nadu locations (Ooty, Coonoor, Kodaikanal, Valparai, Nilgiris, Kolli Hills, Yercaud, Megamalai).
+   - Fullscreen Leaflet map displaying Northeast India locations (Shillong, Gangtok, Haflong, Kohima, Aizawl, Noney, Itanagar, Tawang).
    - Color-coded risk pins (Green = Low, Yellow = Moderate, Red = High, Maroon = Critical).
    - Dynamic risk buffer zones and citizen report markers.
    - Interactive search bar and popup detail cards with direct link to AI Explainability.

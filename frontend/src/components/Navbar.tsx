@@ -95,7 +95,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               type="text"
               value={searchQuery}
               onChange={handleSearchChange}
-              placeholder="Search locations (Ooty, Coonoor, Kodaikanal, Valparai...)"
+              placeholder="Search locations (Shillong, Gangtok, Haflong, Kohima...)"
               className="w-full bg-slate-50 text-slate-800 text-xs sm:text-sm pl-10 pr-4 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all shadow-inner"
             />
           </div>

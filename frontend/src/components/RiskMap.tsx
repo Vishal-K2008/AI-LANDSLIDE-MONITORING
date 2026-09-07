@@ -56,8 +56,8 @@ export const RiskMap: React.FC<RiskMapProps> = ({
   const [filterLevel, setFilterLevel] = useState<string>('ALL');
   const [showZones, setShowZones] = useState<boolean>(true);
 
-  // Center over Tamil Nadu / Western Ghats hill ranges (Ooty/Kodaikanal area)
-  const defaultCenter: [number, number] = [11.0, 77.2];
+  // Center over Northeast India hill ranges (Meghalaya, Sikkim, Assam, Nagaland, Mizoram, Manipur, Arunachal Pradesh)
+  const defaultCenter: [number, number] = [25.8, 92.5];
   
   const selectedLoc = locations.find(l => l.id === selectedLocationId);
   const mapCenter: [number, number] = selectedLoc 
@@ -109,7 +109,7 @@ export const RiskMap: React.FC<RiskMapProps> = ({
       {/* Leaflet Map Canvas */}
       <MapContainer
         center={mapCenter}
-        zoom={9}
+        zoom={7}
         scrollWheelZoom={true}
         className="w-full h-full"
       >
@@ -118,7 +118,7 @@ export const RiskMap: React.FC<RiskMapProps> = ({
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        <MapRecenter center={mapCenter} zoom={selectedLoc ? 12 : 9} />
+        <MapRecenter center={mapCenter} zoom={selectedLoc ? 12 : 7} />
 
         {/* Location Markers & Buffer Circles */}
         {filteredLocations.map((loc) => {

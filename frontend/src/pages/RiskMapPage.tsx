@@ -26,7 +26,6 @@ export const RiskMapPage: React.FC<RiskMapPageProps> = ({
   );
 
   return (
-  return (
     <div className="p-3 sm:p-4 lg:p-8 max-w-7xl mx-auto space-y-4">
       {/* Header Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 bg-white p-4 sm:p-5 rounded-3xl border border-slate-200 shadow-sm">
@@ -36,7 +35,7 @@ export const RiskMapPage: React.FC<RiskMapPageProps> = ({
             Interactive Geospatial Landslide Risk Map
           </h2>
           <p className="text-xs text-slate-500 font-medium mt-0.5">
-            Monitor Tamil Nadu & Western Ghats risk zones (Green = Low, Yellow = Moderate, Red = High, Maroon = Critical)
+            Monitor Northeast India geospatial risk zones (Green = Low, Yellow = Moderate, Red = High, Maroon = Critical)
           </p>
         </div>
 
